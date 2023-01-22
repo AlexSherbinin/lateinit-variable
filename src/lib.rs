@@ -2,14 +2,18 @@ use std::ops::{Deref, DerefMut};
 
 /// Usage of lateinit:
 ///```
-/// let lateinit = Lateinit::<u8>::new();
+/// use lateinit_variable::Lateinit;
+/// 
+/// let mut lateinit = Lateinit::<u8>::new();
 /// lateinit.init(0);
-/// println!("Lateinit containts: {}", lateinit);
+/// println!("Lateinit containts: {}", *lateinit);
 /// ```
 /// This panics(usage without initializing):
 /// ```should_panic
+/// use lateinit_variable::Lateinit;
+/// 
 /// let lateinit = Lateinit::<u8>::new();
-/// println!("Lateinit contains: {}", lateinit);
+/// println!("Lateinit contains: {}", *lateinit);
 /// ```
 pub struct Lateinit<T>(Option<T>);
 
@@ -50,8 +54,10 @@ impl<T> DerefMut for Lateinit<T> {
 /// 
 /// Undefined behavior code example:
 /// ```no_run
-/// let lateinit = Lateinit_Unchecked::<u8>();
-/// println!("Lateinit value: {}", lateinit);
+/// use lateinit_variable::LateinitUnchecked;
+/// 
+/// let lateinit = LateinitUnchecked::<u8>::new();
+/// println!("Lateinit value: {}", *lateinit);
 /// ```
 pub struct LateinitUnchecked<T>(Option<T>);
 
