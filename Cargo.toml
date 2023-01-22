@@ -1,5 +1,7 @@
 [package]
 name = "lateinit-variable"
+description = "Lateinit for Rust!"
+license = "MIT"
 version = "0.1.0"
 edition = "2021"
 readme = "README.md"
